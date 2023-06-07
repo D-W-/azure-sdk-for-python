@@ -829,3 +829,14 @@ def load_model_package(
 ) -> ModelPackage:
     """Construct a model package object from yaml file."""
     return load_common(ModelPackage, source, relative_origin, **kwargs)
+
+
+def load_flow(
+    source: Union[str, PathLike, IO[AnyStr]],
+    *,
+    relative_origin: Optional[str] = None,
+    **kwargs,
+):
+    from azure.ai.ml.entities._flow.flow import Flow
+
+    return load_common(Flow, source, relative_origin, **kwargs)
